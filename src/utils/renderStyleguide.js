@@ -39,6 +39,7 @@ export default function renderStyleguide(
 		const url = loc.pathname + loc.search;
 		hist.replaceState('', doc.title, url);
 	}
+	console.log(sections);
 
 	return (
 		<StyleGuide
@@ -50,6 +51,7 @@ export default function renderStyleguide(
 			sections={sections}
 			allSections={allSections}
 			displayMode={displayMode}
+			topLevelSlug={sections.length === 1 ? sections[0].slug : ''}
 			pagePerSection={pagePerSection}
 		/>
 	);

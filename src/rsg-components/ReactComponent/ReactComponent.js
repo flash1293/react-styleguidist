@@ -22,6 +22,7 @@ export default class ReactComponent extends Component {
 	static contextTypes = {
 		config: PropTypes.object.isRequired,
 		displayMode: PropTypes.string,
+		topLevelSlug: PropTypes.string,
 	};
 
 	constructor(props, context) {
@@ -43,13 +44,14 @@ export default class ReactComponent extends Component {
 
 	render() {
 		const { activeTab } = this.state;
-		const { displayMode } = this.context;
+		const { displayMode, topLevelSlug } = this.context;
 		const { component, depth } = this.props;
 		const { name, slug, filepath, pathLine } = component;
 		const { description, examples = [], tags = {} } = component.props;
 		if (!name) {
 			return null;
 		}
+		console.log(slug, topLevelSlug);
 
 		return (
 			<ReactComponentRenderer
@@ -66,7 +68,7 @@ export default class ReactComponent extends Component {
 						slotName="componentToolbar"
 						slotProps={{
 							...component,
-							isolated: displayMode !== DisplayModes.all,
+							isolated: displayMode === DisplayModes.component,
 						}}
 						depth={depth}
 					>

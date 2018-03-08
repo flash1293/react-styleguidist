@@ -40,6 +40,7 @@ export default class StyleGuide extends Component {
 		welcomeScreen: PropTypes.bool,
 		patterns: PropTypes.array,
 		displayMode: PropTypes.string,
+		topLevelSlug: PropTypes.string,
 		allSections: PropTypes.array.isRequired,
 		pagePerSection: PropTypes.bool,
 	};
@@ -49,6 +50,7 @@ export default class StyleGuide extends Component {
 		config: PropTypes.object.isRequired,
 		slots: PropTypes.object.isRequired,
 		displayMode: PropTypes.string,
+		topLevelSlug: PropTypes.string,
 	};
 
 	static defaultProps = {
@@ -66,6 +68,7 @@ export default class StyleGuide extends Component {
 			config: this.props.config,
 			slots: this.props.slots,
 			displayMode: this.props.displayMode,
+			topLevelSlug: this.props.topLevelSlug,
 		};
 	}
 
